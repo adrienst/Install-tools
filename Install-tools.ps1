@@ -42,12 +42,15 @@ $logpath = "$env:TEMP\scripts_output\$scriptname"
 $icon_url = "https://www.iconarchive.com/download/i47384/icons-land/vista-hardware-devices/Toolbox-Red.ico"
 $icon_destination ="C:\Toolbox\icon\Toolbox-Red.ico"
 
+$locations = get-childitem C:\Users | where-object fullname -like *admin* | select-object -expand fullname | foreach-object { "$_\desktop" }
 
-$Locations = @( 
+<# $Locations = @( 
 "C:\users\administrateur\desktop",
 "C:\users\administrator\desktop",
 "C:\users\adrsta\desktop"
 )
+
+#>
 
 $download_list= @( 
 "https://www.voidtools.com/Everything-1.4.1.1024.x64.zip",
